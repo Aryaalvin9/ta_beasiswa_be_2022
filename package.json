@@ -1,0 +1,29 @@
+{
+  "name": "postgres",
+  "version": "0.0.1",
+  "description": "rest full api TA backend aplikasi seleksi beasiswa",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest",
+    "express",
+    "mongodb"
+  ],
+  "author": "arya alfinanto",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "knex": "^2.0.0",
+    "moment": "^2.29.3",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "path": "^0.12.7",
+    "pg": "^8.7.3",
+    "timezone": "^1.0.23"
+  }
+}
