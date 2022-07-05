@@ -14,7 +14,8 @@ const pool = new Pool({
     host: 'ec2-3-217-14-181.compute-1.amazonaws.com',
     database: 'd47lobugft4se1',
     password: '5e2e1619f9be0429a7694260d9762577de7e4e2ab4f3d37966f23bdc3acc2cfc',
-    port: 5432
+    port: 5432,
+    ssl: true
 })
 
 
