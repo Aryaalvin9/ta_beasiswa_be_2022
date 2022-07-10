@@ -219,7 +219,7 @@ const getNilaiByIdUser = (request, response) => {
     })
 }
 
-const Login = (request, response) => {
+const login = (request, response) => {
     var {email, passwordd} = request.body
 
     pool.query('SELECT id, password FROM tbl_user WHERE email = $1', [email], (error, results) => 
@@ -252,7 +252,7 @@ const Login = (request, response) => {
     })
 }
 
-const Login_admin = (request, response) => {
+const login_admin = (request, response) => {
     var {username, passwordd} = request.body
 
     pool.query('SELECT password_admin FROM tbl_admin WHERE username = $1', [username], (error, results) => 
@@ -422,8 +422,8 @@ module.exports = {
     addfakultas,
     getFakultas,
     getNilaiByIdUser,
-    Login,
-    Login_admin,
+    login,
+    login_admin,
     addperidoe,
     getperiode,
     aproveFileSertif,
