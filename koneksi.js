@@ -366,7 +366,7 @@ const posmantmainFuction = (request, response) =>{
   
     pool.query('UPDATE tbl_user SET status_lulus = $1 WHERE fakultas_diambil = $2', ["GAGAL", fakultas]);
     pool.query('select tb.id_user, tb.niali_rata as nilai_rata , max(tb.tingkat_sertif) as tingkat_sertif, min(tb.index_kem) as index_kemiskinan, tb.fakultas_diambil from tbl_banding tb where tb.fakultas_diambil = $1 group by tb.id_user, tb.niali_rata, tb.fakultas_diambil, tb.tingkat_sertif, tb.index_kem order by max(tb.niali_rata) desc, max(tb.tingkat_sertif) desc, min(tb.index_kem) limit 1', [fakultas],(error, results) =>{
-        console.log(results)
+      
         console.log(fakultas)
         
        pool.query('UPDATE tbl_user SET status_lulus = $1 WHERE id = $2', ["LULUS", results.rows[0].id_user], (error,results) => {
@@ -394,7 +394,8 @@ const addDataBanding = (id,fakultas, penghasilan, gaji)=>{
 const updateDataBanding = (request, response) => {
     var{id_user, nilai_rata, tingkat_sertif, fakultas, jumlah_sertifikat, jenis_sertifikat} = request.body
 
-    var point_sertifikat = Math.ceil(jumlah_sertifikat * jenis_sertifikat);
+    var point_sertifikat = Math.ceil(jumlah_sertifikat * tingkat_sertif);
+    console.log(point_sertifikat)
     pool.query('update tbl_banding set niali_rata = $2, tingkat_sertif  = $3, jumlah_sertifikat = $4, jenis_sertifikat = $5, point_sertifikat = $6  where  id_user = $1',[id_user, nilai_rata,tingkat_sertif, jumlah_sertifikat, jenis_sertifikat, point_sertifikat],(error, results)=>{
         if(error){
             throw error
