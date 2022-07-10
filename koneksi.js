@@ -22,7 +22,7 @@ const pool = new Pool({
 //User Data
 
 const getUsers = (req, resp) => {
-    pool.query('SELECT tu.*, tb."niali_rata", tb."tingkat_sertif" FROM tbl_user tu left join tbl_banding tb  on tu.id = tb.id_user ORDER BY id ASC', (error, results) =>
+    pool.query('SELECT tu.*, tb."niali_rata", tb."tingkat_sertif", tb."jenis_sertifikat", tb."jumlah_sertifikat" FROM tbl_user tu left join tbl_banding tb  on tu.id = tb.id_user ORDER BY id ASC', (error, results) =>
     {
         if(error){
             return resp.status(400).json({"error" : error.message})
@@ -38,7 +38,7 @@ const getUsers = (req, resp) => {
 const getUserById = (request, response) => {
     const {id} = request.body
 
-    pool.query('SELECT tu.*, tb."niali_rata", tb."tingkat_sertif" FROM tbl_user tu left join tbl_banding tb  on tu.id = tb.id_user WHERE tu.id = $1', [id], (error, results)=>
+    pool.query('SELECT tu.*, tb."niali_rata", tb."tingkat_sertif", tb."jenis_sertifikat", tb."jumlah_sertifikat" FROM tbl_user tu left join tbl_banding tb  on tu.id = tb.id_user WHERE tu.id = $1', [id], (error, results)=>
     {
         if(error){
             return resp.status(400).json({"error" : error.message})
