@@ -54,26 +54,17 @@ const getUserById = (request, response) => {
 
 const register = (request, response) => {
   const { name, email, password, nomor_tlp } = request.body
-if(email == null || password == null){
-    pool.query('INSERT INTO tbl_user (name, email, password, nomor_tlp, status_lulus) VALUES ($1, $2, $3, $4, $5)', [name, email, password, nomor_tlp, 'PROSES'], (error) => {
-        if (error) {
-            throw error
-        }
-        response.json({
-            "code" : 201,
-            "status" : true,
-            "message" : "Data berhasil di input"
-        })
-      })
-    
-      console.log(request.body)
-}else{
+  pool.query('INSERT INTO tbl_user (name, email, password, nomor_tlp, status_lulus) VALUES ($1, $2, $3, $4, $5)', [name, email, password, nomor_tlp, 'PROSES'], (error) => {
+    if (error) {
+        throw error
+     
+    }
     response.json({
-        "code" : 401,
-        "status" : false,
-        "message" : "Tolong masukan data"
+        "code" : 201,
+        "status" : true,
+        "message" : "Data berhasil di input"
     })
-}
+  })
  
 }
 
