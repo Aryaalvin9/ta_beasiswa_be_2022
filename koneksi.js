@@ -10,10 +10,10 @@ const date = moment().format('YYYY-MM-DD HH:mm:ss')
 const Pool = require('pg').Pool
 
 const pool = new Pool({
-    user: 'cehhmcsimfaana',
-    host: 'ec2-3-217-14-181.compute-1.amazonaws.com',
-    database: 'd47lobugft4se1',
-    password: '5e2e1619f9be0429a7694260d9762577de7e4e2ab4f3d37966f23bdc3acc2cfc',
+    user: 'frskfcxzkbegno',
+    host: 'ec2-52-204-157-26.compute-1.amazonaws.com',
+    database: 'dfvkafr8auchr1',
+    password: 'a76ea0a40f64223e313c3536bb22612f8ab5e7033ca706e6a9d37f8552e18bce',
     port: 5432,
     ssl: { rejectUnauthorized: false }
 })
