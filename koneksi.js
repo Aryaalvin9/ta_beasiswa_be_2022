@@ -108,7 +108,7 @@ const deletUser = (req, resp) => {
 
 
 const userLulus = (request, response) => {
-    var status = 'LULUS'
+    var status = 'Lolos Seleksi'
     pool.query('SELECT tu.*, tb."niali_rata", tb."tingkat_sertif" FROM tbl_user tu left join tbl_banding tb  on tu.id = tb.id_user where tu.status_lulus = $1', [status], (error, results) => {
         if(error){
             return response.status(400).json({"error": error.message})
