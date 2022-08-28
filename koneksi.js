@@ -31,6 +31,7 @@ const getUsers = (req, resp) => {
             "code"      : 200,
             "status"    : true,
             "message"   : "Data berhasil",
+            "count"     : results.rowCount,
             "data"      : results.rows})
     })
 }
