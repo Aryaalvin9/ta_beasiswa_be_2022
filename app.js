@@ -36,6 +36,7 @@ app.get('/admin/periode', db.getperiode)
 app.put('/sertif/uprove', db.aproveFileSertif)
 app.post('/mainfuction', db.updateDataBanding)
 app.post('/mainfuction/post', db.posmantmainFuction)
+app.get('/admin/getTotalPerProdi', db.getJumlahDaftarJurusan)
 
 const db2 = knex({
     client: 'pg',

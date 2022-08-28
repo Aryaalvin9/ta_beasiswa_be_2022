@@ -408,6 +408,20 @@ const updateDataBanding = (request, response) => {
     })
 }
 
+const getJumlahDaftarJurusan = (request, response) => {
+    pool.query('select hasil.* from (select count(fakultas_diambil) as total, fakultas_diambil from tbl_user tu group by fakultas_diambil) as hasil', (error, results) => {
+        if(error){
+            return response.status(400).json({"error": error.message})
+        }
+        response.status(200).json({
+            "code"      : 200,
+            "status"    : true,
+            "message"   : "Data berhasil",
+            "data"      : results.rows
+        })
+    })
+}
+
 module.exports = {
     getUsers,
     getUserById,
@@ -428,5 +442,6 @@ module.exports = {
     aproveFileSertif,
     aproveFileNiali,
     updateDataBanding,
-    posmantmainFuction
+    posmantmainFuction,
+    getJumlahDaftarJurusan
 }
